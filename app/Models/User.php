@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\RoleController;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,6 +12,13 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    public function role () {
+        return $this->belongsTo(Role::class);
+    }
+    public function avatar () {
+        return $this->belongsTo(Avatar::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +30,7 @@ class User extends Authenticatable
         'firstname',
         'age',
         'avatar_id',
+        'role_id',
         'email',
         'password',
     ];

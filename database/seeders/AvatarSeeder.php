@@ -19,15 +19,15 @@ class AvatarSeeder extends Seeder
 
            [
                'name' => 'pokemon1',
-               'src' => 'pokemon1'
+               'src' => 'pokemon1.jpg'
            ],
            [
                'name' => 'pokemon2',
-               'src' => 'pokemon2'
+               'src' => 'pokemon2.jpg'
            ],
            [
                'name' => 'pokemon3',
-               'src' => 'pokemon3'
+               'src' => 'pokemon3.jpg'
            ],
 
         ]);
