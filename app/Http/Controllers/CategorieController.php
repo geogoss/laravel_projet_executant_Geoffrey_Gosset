@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use App\Http\Requests\StoreCategorieRequest;
 use App\Http\Requests\UpdateCategorieRequest;
+use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
@@ -15,7 +16,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categorie::all();
+        return view('pages.categorie', compact('categories'));
     }
 
     /**
@@ -25,7 +27,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.createCategorie');
     }
 
     /**
@@ -36,7 +38,10 @@ class CategorieController extends Controller
      */
     public function store(StoreCategorieRequest $request)
     {
-        //
+        $categorie = new Categorie();
+        $categorie->name = $request->name;
+        $categorie->save();
+        return redirect('/categorie/create');
     }
 
     /**
@@ -58,7 +63,7 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
-        //
+        return view('pages.editCategorie', compact('categorie'));
     }
 
     /**
@@ -70,7 +75,9 @@ class CategorieController extends Controller
      */
     public function update(UpdateCategorieRequest $request, Categorie $categorie)
     {
-        //
+        $categorie->name = $request->name;
+        $categorie->save();
+        return redirect('/categorie');
     }
 
     /**
@@ -81,6 +88,7 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
-        //
+        $categorie->delete();
+        return redirect()->back();
     }
 }

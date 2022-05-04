@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Http\Requests\StoreImageRequest;
 use App\Http\Requests\UpdateImageRequest;
+use App\Models\Categorie;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -15,7 +17,9 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::all();
+        $categories = Categorie::all();
+        return view('pages.uploadImage', compact('images', 'categories'));
     }
 
     /**
@@ -25,7 +29,9 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        $image = Image::all();
+        $categories = Categorie::all();
+        return view('pages.uploadImage', compact('image', 'categories'));
     }
 
     /**
@@ -36,7 +42,13 @@ class ImageController extends Controller
      */
     public function store(StoreImageRequest $request)
     {
-        //
+        $image = new Image();
+        $image->name = $request->name;
+        $image->src = $request->file('src')->hashName();
+        Storage::put('public', $request->file('src'));
+        $image->categorie_id = $request->categorie_id;
+        $image->save();
+        return redirect('/image/create');
     }
 
     /**

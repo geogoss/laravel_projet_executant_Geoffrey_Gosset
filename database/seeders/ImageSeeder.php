@@ -19,52 +19,52 @@ class ImageSeeder extends Seeder
 
             [
                 'name' => 'chien',
-                'src' => 'animal1',
+                'src' => 'animal1.jpg',
                 'categorie_id' => '1'
             ],
             [
                 'name' => 'chat',
-                'src' => 'animal2',
+                'src' => 'animal2.jpg',
                 'categorie_id' => '1'
             ],
             [
                 'name' => 'martin',
-                'src' => 'animal3',
+                'src' => 'animal3.jpg',
                 'categorie_id' => '1'
             ],
             [
                 'name' => 'aigle',
-                'src' => 'animal4',
+                'src' => 'animal4.jpg',
                 'categorie_id' => '1'
             ],
             [
                 'name' => 'technologie1',
-                'src' => 'tech1',
+                'src' => 'tech1.jpg',
                 'categorie_id' => '2'
             ],
             [
                 'name' => 'technologie1',
-                'src' => 'tech2',
+                'src' => 'tech2.jpg',
                 'categorie_id' => '2'
             ],
             [
                 'name' => 'technologie1',
-                'src' => 'tech3',
+                'src' => 'tech3.jpg',
                 'categorie_id' => '2'
             ],
             [
                 'name' => 'voiture1',
-                'src' => 'voiture1',
+                'src' => 'voiture1.jpg',
                 'categorie_id' => '3'
             ],
             [
                 'name' => 'voiture2',
-                'src' => 'voiture2',
+                'src' => 'voiture2.jpg',
                 'categorie_id' => '3'
             ],
             [
                 'name' => 'voiture3',
-                'src' => 'voiture3',
+                'src' => 'voiture3.jpg',
                 'categorie_id' => '3'
             ],
 
