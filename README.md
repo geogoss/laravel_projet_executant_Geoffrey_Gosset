@@ -1,3 +1,6 @@
+Lien du Notion :
+https://www.notion.so/Projet-avant-le-projet-final-ba8ff848e76e491bac2b3a9dfda98fa3
+
 
 Laravel_projet_executant
 nom du repo : Laravel_projet_executant
@@ -26,12 +29,12 @@ Consignes :
         * utilisateurs : Afficher tout les utilisateurs. On peut changer leurs données( le rôle aussi) sauf les users dont le rôles est admin.
 
 -Fonctionnement :
-    + Au moment du register, l'user a la possibilité de choisir un avatar parmi une liste d'avatar. Son rôle sera 'membre' par défaut à l'enregistrement
+    + Au moment du register, le user a la possibilité de choisir un avatar parmi une liste d'avatar. Son rôle sera 'membre' par défaut à l'enregistrement
     + L'admin peut alimenter la liste des avatars
     + L'admin peut alimenter la page avec les images
     + L'admin peut créer de nouvelles catégorie d'image
     + Middleware :
-        * Accès au back est refusé tant que l'user n'est pas connecté.
+        * Accès au back est refusé tant que le user n'est pas connecté.
 
         * Seul l'admin à accès à la page 
                     avatars

@@ -10,6 +10,7 @@
                 <input id="username" name="name" value="{{$user->name}} " type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                 
             </div>
+            
             <div>
                 <label class="text-gray-700 dark:text-gray-200" for="username">Firstame</label>
                 <input id="username" name="firstname" value="{{$user->firstname}} " type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
@@ -28,6 +29,17 @@
                     aria-describedby="addTreeInputLatinHelp">
                     @foreach ($roles as $role)
                     <option value="{{$role->id}} " @if($user->role_id == $role->id) ? selected : null @endif>{{$role->role}} </option>
+                        
+                    @endforeach
+                </select>
+            </div>
+
+            <div>
+                <label class="text-gray-700 dark:text-gray-200" for="username">Avatar_id</label>
+                <select name="avatar_id" type="text" class="form-select" id="addTreeInputLatin"
+                    aria-describedby="addTreeInputLatinHelp">
+                    @foreach ($avatars as $avatar)
+                    <option value="{{$avatar->id}} " @if($user->avatar_id == $avatar->id) ? selected : null @endif>{{$avatar->name}} </option>
                         
                     @endforeach
                 </select>

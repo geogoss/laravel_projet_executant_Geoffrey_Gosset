@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('firstname')->nullable();
             $table->integer('age')->nullable();
-            $table->foreignId('avatar_id')->constrained();
+            $table->foreignId('avatar_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('role_id')->default(2)->constrained();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

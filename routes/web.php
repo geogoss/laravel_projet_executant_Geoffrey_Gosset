@@ -39,8 +39,14 @@ Route::resource('avatar', AvatarController::class);
 Route::resource('image', ImageController::class);
 Route::resource('categorie', CategorieController::class);
 
+
 Route::get('/gallerie', function () {
     $images = Image::all();
     return view('pages.gallerie', compact('images'));
+});
+
+Route::get('/user', function () {
+    $users = User::all();
+    return view('pages.user', compact('users'));
 });
 

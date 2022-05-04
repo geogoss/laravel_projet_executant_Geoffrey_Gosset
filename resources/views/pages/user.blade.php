@@ -4,9 +4,6 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        @include('partials.formEditCategorie')
-        <h1>Bonjour</h1>
-    </div>
+    
+    @include('partials.afficheUser')
 </x-app-layout>
