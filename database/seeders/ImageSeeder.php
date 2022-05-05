@@ -43,12 +43,12 @@ class ImageSeeder extends Seeder
                 'categorie_id' => '2'
             ],
             [
-                'name' => 'technologie1',
+                'name' => 'technologie2',
                 'src' => 'tech2.jpg',
                 'categorie_id' => '2'
             ],
             [
-                'name' => 'technologie1',
+                'name' => 'technologie3',
                 'src' => 'tech3.jpg',
                 'categorie_id' => '2'
             ],

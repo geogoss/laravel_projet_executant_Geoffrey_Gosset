@@ -29,6 +29,14 @@ class AvatarSeeder extends Seeder
                'name' => 'pokemon3',
                'src' => 'pokemon3.jpg'
            ],
+           [
+               'name' => 'pokemon4',
+               'src' => 'pokemon4.jpg'
+           ],
+           [
+               'name' => 'pokemon5',
+               'src' => 'pokemon5.jpg'
+           ],
 
         ]);
     }

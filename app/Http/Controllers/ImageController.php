@@ -93,6 +93,15 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        Storage::delete('public/'. $image->src);
+        $image->delete();
+        return redirect()->back();
     }
+
+    public function download ($id) {
+        $images = Image::find($id);
+        return Storage::download('public/', $images->src );
+    }
+
+
 }
