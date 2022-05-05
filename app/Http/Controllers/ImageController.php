@@ -29,6 +29,7 @@ class ImageController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         $image = Image::all();
         $categories = Categorie::all();
         return view('pages.uploadImage', compact('image', 'categories'));
@@ -48,7 +49,7 @@ class ImageController extends Controller
         Storage::put('public', $request->file('src'));
         $image->categorie_id = $request->categorie_id;
         $image->save();
-        return redirect('/image/create');
+        return redirect('/image/create')->with('success', 'Image créée');
     }
 
     /**
@@ -93,9 +94,14 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        Storage::delete('public/'. $image->src);
+        $this->authorize('admin', $image);
+        $photos = array('animal1.jpg', 'animal2.jpg', 'animal3.jpg', 'animal4.jpg', 'tech1.jpg', 'tech2.jpg', 'tech3.jpg',  'voiture1.jpg', 'voiture2.jpg', 'voiture3.jpg' );
+        if (!(in_array($image->src, $photos))) {
+            Storage::delete('public/'. $image->src);
+        }
+            
         $image->delete();
-        return redirect()->back();
+        return redirect()->back()->with('danger', 'image supprimée');
     }
 
     public function download ($id) {

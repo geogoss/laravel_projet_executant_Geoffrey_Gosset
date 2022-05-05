@@ -4,6 +4,6 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    
+    @include('layouts.flash')
     @include('partials.formCreateAvatar')
 </x-app-layout>

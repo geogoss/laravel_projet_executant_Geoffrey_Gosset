@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function edit ($id) {
+        $this->authorize('admin');
         $roles = Role::all();
         $avatars = Avatar::all();
         $user = User::find($id);
@@ -25,13 +26,14 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->avatar_id = $request->avatar_id;
         $user->save();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Données de l\'utilisateur modifiées');
     }
 
     public function destroy ($id) {
+        $this->authorize('admin');
         $delete = User::find($id);
         $delete->delete();
-        return redirect()->back();
+        return redirect()->back()->with('danger', 'Utilisateur supprimé');
     }
 
 }

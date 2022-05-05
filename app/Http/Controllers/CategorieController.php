@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use App\Http\Requests\StoreCategorieRequest;
 use App\Http\Requests\UpdateCategorieRequest;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -25,8 +26,9 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($categorie)
     {
+        $this->authorize('admin', $categorie);
         return view('pages.createCategorie');
     }
 
@@ -41,7 +43,7 @@ class CategorieController extends Controller
         $categorie = new Categorie();
         $categorie->name = $request->name;
         $categorie->save();
-        return redirect('/categorie/create');
+        return redirect('/categorie/create')->with('success', 'Catégorie créée');
     }
 
     /**
@@ -63,7 +65,9 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
-        return view('pages.editCategorie', compact('categorie'));
+        $this->authorize('admin');
+        $image = Image::all();
+        return view('pages.editCategorie', compact('categorie', 'image'));
     }
 
     /**
@@ -77,7 +81,7 @@ class CategorieController extends Controller
     {
         $categorie->name = $request->name;
         $categorie->save();
-        return redirect('/categorie');
+        return redirect('/categorie')->with('warning', 'Catégorie modifiée');
     }
 
     /**
@@ -88,7 +92,8 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
+        $this->authorize('admin', $categorie);
         $categorie->delete();
-        return redirect()->back();
+        return redirect()->back()->with('danger', 'Catégorie supprimée');
     }
 }

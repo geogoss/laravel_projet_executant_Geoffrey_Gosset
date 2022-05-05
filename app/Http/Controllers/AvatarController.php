@@ -27,6 +27,7 @@ class AvatarController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('pages.createAvatar');
     }
 
@@ -43,7 +44,7 @@ class AvatarController extends Controller
         $avatar->src = $request->file('src')->hashName();
         Storage::put('public', $request->file('src'));
         $avatar->save();
-        return redirect('/avatar/create');
+        return redirect('/avatar/create')->with('success', 'Avatar Créé');
     }
 
     /**
@@ -88,7 +89,12 @@ class AvatarController extends Controller
      */
     public function destroy(Avatar $avatar)
     {
+        $this->authorize('admin');
+        $pokemons = array('pokemon1.jpg', 'pokemon2.jpg', 'pokemon3.jpg', 'pokemon4.jpg', 'pokemon5.jpg');
+        if (!(in_array($avatar->src, $pokemons))) {
+            Storage::delete('public/'.$avatar->src);
+        } 
         $avatar->delete();
-        return redirect()->back();
+        return redirect()->back()->with('danger', 'Avatar supprimé');
     }
 }

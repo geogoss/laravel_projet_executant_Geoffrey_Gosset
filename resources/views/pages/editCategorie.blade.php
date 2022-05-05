@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
+        @include('layouts.flash')
         @include('partials.formEditCategorie')
-        <h1>Bonjour</h1>
     </div>
 </x-app-layout>
