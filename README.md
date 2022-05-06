@@ -1,5 +1,5 @@
 Lien du Notion :
-https://www.notion.so/Projet-avant-le-projet-final-ba8ff848e76e491bac2b3a9dfda98fa3
+https://jolly-freedom-a86.notion.site/Projet-avant-le-projet-final-ba8ff848e76e491bac2b3a9dfda98fa3
 
 
 Laravel_projet_executant
