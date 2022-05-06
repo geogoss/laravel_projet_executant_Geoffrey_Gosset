@@ -1,6 +1,11 @@
 <section class="max-w-xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Modifier une catégorie</h2>
 
+    <h1>Bonjour Geoffrey Comment vas-tu ?</h1>
+    <h2>Hello comment tu vas ?</h2>
+    <h3>Yes i can</h3>
+    
+
     <form action="/categorie/{{ $categorie->id }} " method="POST">
         @csrf
         @method('PUT')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Avatar;
 use App\Http\Requests\StoreAvatarRequest;
 use App\Http\Requests\UpdateAvatarRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
@@ -28,6 +29,7 @@ class AvatarController extends Controller
     public function create()
     {
         $this->authorize('admin');
+        $this->authorize('avatar', Auth::user());
         return view('pages.createAvatar');
     }
 
@@ -44,7 +46,7 @@ class AvatarController extends Controller
         $avatar->src = $request->file('src')->hashName();
         Storage::put('public', $request->file('src'));
         $avatar->save();
-        return redirect('/avatar/create')->with('success', 'Avatar Créé');
+        return redirect('/avatar')->with('success', 'Avatar Créé');
     }
 
     /**

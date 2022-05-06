@@ -37,6 +37,26 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('member@member.com')
 
             ],
+            [
+                'name' => 'Washington',
+                'firstname' => 'Denzel',
+                'age' => '46',
+                'avatar_id' => 3,
+                'role_id' => 2,
+                'email' => "denzel@denzel.com",
+                'password' => bcrypt('denzel@denzel.com')
+
+            ],
+            [
+                'name' => 'Johnson',
+                'firstname' => 'Dwayne',
+                'age' => '50',
+                'avatar_id' => 4,
+                'role_id' => 1,
+                'email' => "dwayne@dwayne.com",
+                'password' => bcrypt('dwayne@dwayne.com')
+
+            ],
 
         ]);
     }

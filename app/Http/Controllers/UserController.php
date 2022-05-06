@@ -6,14 +6,15 @@ use App\Models\Avatar;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function edit ($id) {
-        $this->authorize('admin');
+        $user = User::find($id);
+        $this->authorize('test', $user );
         $roles = Role::all();
         $avatars = Avatar::all();
-        $user = User::find($id);
         return view('pages.editUser', compact('user', 'roles', 'avatars'));
     }
 
@@ -26,12 +27,12 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->avatar_id = $request->avatar_id;
         $user->save();
-        return redirect()->back()->with('warning', 'Données de l\'utilisateur modifiées');
+        return redirect('/user')->with('warning', 'Données de l\'utilisateur modifiées');
     }
 
     public function destroy ($id) {
-        $this->authorize('admin');
         $delete = User::find($id);
+        $this->authorize('test', $delete );
         $delete->delete();
         return redirect()->back()->with('danger', 'Utilisateur supprimé');
     }

@@ -106,7 +106,7 @@ class ImageController extends Controller
 
     public function download ($id) {
         $images = Image::find($id);
-        return Storage::download('public/', $images->src );
+        return Storage::download('public/'. $images->src );
     }
 
 
