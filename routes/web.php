@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
+Route::get('/user', [UserController::class, 'index']);
 Route::get('/user/{id}/edit', [UserController::class, 'edit']);
 Route::put('/user/{id}', [UserController::class, 'update']);
 Route::delete('/delete/{id}', [UserController::class, 'destroy']);
@@ -60,11 +60,6 @@ Route::get('/technologie', function () {
 Route::get('/voiture', function () {
     $voitures = Image::where('categorie_id', '3')->get();
     return view('partials.voiture', compact('voitures'));
-});
-
-Route::get('/user', function () {
-    $users = User::all();
-    return view('pages.user', compact('users'));
 });
 
 

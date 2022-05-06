@@ -30,10 +30,6 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role->role == 'admin';
         });
 
-        Gate::define('modifAdmin', function ($user, $item) {
-            return $item->role->role != 'admin';
-        });
-
         Gate::define('test', function ($user, $item) {
             return  $item->role->role != 'admin' && $user->role->role == 'admin' ;
         });

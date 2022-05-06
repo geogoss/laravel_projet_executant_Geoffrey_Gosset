@@ -65,7 +65,7 @@
                                                                     <td class="p-2 whitespace-nowrap">
                                                                         <div class="text-left font-medium text-green-500">{{$item->role->role}}</div>
                                                                     </td>
-                                                                    @can('modifAdmin', $item)
+                                                                    @can('test', $item)
                                                                     <td>
                                                                         <a class="text-white bg-yellow-400 mr-2 px-2 rounded" href="/user/{{$item->id}}/edit ">Modifier</a>
                                                                     </td>

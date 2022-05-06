@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function index () {
+        $users = User::all();
+        $this->authorize('admin');
+        return view('pages.user', compact('users'));
+    }
+
     public function edit ($id) {
         $user = User::find($id);
         $this->authorize('test', $user );

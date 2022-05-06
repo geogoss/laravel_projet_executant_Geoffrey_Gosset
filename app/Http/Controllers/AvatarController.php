@@ -17,6 +17,7 @@ class AvatarController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
         $avatars = Avatar::all();
         return view('pages.avatar', compact('avatars'));
     }

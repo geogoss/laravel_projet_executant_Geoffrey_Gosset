@@ -17,6 +17,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
         $categories = Categorie::all();
         return view('pages.categorie', compact('categories'));
     }
@@ -26,9 +27,9 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($categorie)
+    public function create()
     {
-        $this->authorize('admin', $categorie);
+        $this->authorize('admin');
         return view('pages.createCategorie');
     }
 

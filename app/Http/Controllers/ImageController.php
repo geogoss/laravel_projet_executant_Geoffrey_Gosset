@@ -17,6 +17,7 @@ class ImageController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin');
         $images = Image::all();
         $categories = Categorie::all();
         return view('pages.uploadImage', compact('images', 'categories'));
