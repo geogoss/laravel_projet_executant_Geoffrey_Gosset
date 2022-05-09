@@ -12,7 +12,7 @@ class UserController extends Controller
 {
 
     public function index () {
-        $users = User::all();
+        $users = User::paginate(2);
         $this->authorize('admin');
         return view('pages.user', compact('users'));
     }
